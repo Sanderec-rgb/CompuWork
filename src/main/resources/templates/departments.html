@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Gestion de Departamentos - CompuWork</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+</head> 
+<body> 
+    <div class="container mt-4"> 
+        <div class="card"> 
+            <div class="card-header bg-success text-white"> 
+                <h3> <i class="fas fa-building"></i> Gestion de Departamentos</h3> 
+            </div> 
+            <div class="card-body"> 
+                <a th:href="@{/}" class="btn btn-secondary mb-3"> <i class="fas fa-home"></i> Inicio</a> 
+                <div class="alert alert-info"> 
+                    <i class="fas fa-info-circle"></i> Modulo de departamentos en construccion. Pronto podras gestionar los departamentos de la empresa. 
+                </div> 
+                <table class="table"> 
+                    <thead> 
+                        <tr> 
+                            <th>ID</th> 
+                            <th>Nombre</th> 
+                            <th>Descripcion</th> 
+                            <th>Empleados</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        <tr th:each="dept : ${departments}"> 
+                            <td th:text="${dept.id}"></td> 
+                            <td th:text="${dept.nombre}"></td> 
+                            <td th:text="${dept.descripcion}"></td> 
+                            <td th:text="${dept.employees.size()}"></td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+            </div> 
+        </div> 
+    </div> 
+</body> 
+</html> 

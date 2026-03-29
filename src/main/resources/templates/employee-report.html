@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Desempeno - CompuWork</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h3> <i class="fas fa-chart-line"></i> Reporte de Desempeno Individual</h3>
+            </div>
+            <div class="card-body">
+                <div th:if="${report != null}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-secondary text-white">
+                                    <h5>Informacion del Empleado</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Nombre:</strong> <span th:text="${report.empleado}"></span></p>
+                                    <p><strong>Puntuacion:</strong> <span th:text="${report.puntuacion}"></span></p>
+                                    <p><strong>Evaluacion:</strong> <span th:text="${report.evaluacion}"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div th:unless="${report != null}" class="alert alert-warning">
+                    No se encontro informacion del empleado.
+                </div>
+                <a th:href="@{/employees}" class="btn btn-secondary"> <i class="fas fa-arrow-left"></i> Volver</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
